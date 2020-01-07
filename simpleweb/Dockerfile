@@ -9,8 +9,11 @@ FROM node:alpine
 # wget으로 설치하기
 # RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-COPY ./package.json ./package.json
-COPY ./index.js ./index.js
-
-RUN npm install
+# COPY ./package.json ./package.json
+# COPY ./index.js ./index.js
+WORKDIR /home/node
+# COPY ./package.json ./package.json
+# COPY ./index.js     ./index.js
+COPY ["./index.js", "./package.json", "./"]
+RUN ["npm", "install"]
 CMD ["npm", "start"]
