@@ -69,6 +69,9 @@ listening on port 8080
 ```
 
 ```shell
+# docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                    NAMES
+b181c5331252        ppojin/simpleweb:latest   "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes        0.0.0.0:9000->8080/tcp   clever_morse
 # curl http://localhost:8080/
 
 
