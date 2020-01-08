@@ -1,0 +1,12 @@
+version: '3'
+services: 
+    mongo:
+        image: mongo
+        ports:
+            - 27017:27017
+        environment: 
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    mongo-data:
+        image: busybox
+        volumes: /var/lib/mysql
+        command: ["bin/true"]

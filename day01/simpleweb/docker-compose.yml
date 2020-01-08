@@ -1,0 +1,6 @@
+version: '3'
+services: 
+    simpleweb:
+        image: ppojin/simpleweb:latest
+        ports:
+            - 8080:8080
