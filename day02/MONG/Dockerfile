@@ -1,7 +1,8 @@
 FROM mongo
 
-# WORKDKR
-# RUN
-# COPY
+RUN mkdir /usr/src/configs/
+WORKDIR /usr/src/configs/
+COPY replicaSet.js .
+COPY setup.sh .
 
-CMD ["mongod", "--replSet", "myapp"]
+CMD ["./setup.sh"]
