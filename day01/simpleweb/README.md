@@ -1,18 +1,7 @@
-## 
-1. nodejs 설치
-1. 개발
-    - package.json
-    - index.js
-1. npm install
-1. npm start
-
-##
-1. FROM (Node 사용가능한 이미지)
-1. RUN npm install 실행
-1. CMD npm start
-
+# docker 예제
+## 환경
 ```shell
-[./docker/simpleweb] # node --version
+[~/day01/simpleweb] # node --version
 v13.3.0
 ```
 
@@ -45,23 +34,23 @@ app.listen(8080, () => {
 });
 ```
 
-`package.json` 이용 `npm install` 명령어 만으로 패키지 및 의존성 패키지까지 함께 설치됨
+## node package 설치
+`npm install` 명령어 만으로 `package.json` 을 조회하여 패키지 및 의존성 패키지까지 함께 설치됨
 ```shell
-[./docker/simpleweb] # npm install
+[~/day01/simpleweb] # npm install
 npm notice created a lockfile as package-lock.json. You should commit this file.
 npm WARN simpleweb No description
 npm WARN simpleweb No repository field.                   kages in 4.605s
 npm WARN simpleweb No license field.
+added 50 packages from 37 contributors and audited 126 packages in 4.605s
+found 0 vulnerabilities
 ```
 
 ## console 에서 webserver 실행
 ```shell
-added 50 packages from 37 contributors and audited 126 packages in 4.605s
-found 0 vulnerabilities
+[~/day01/simpleweb] # npm start
 
-[./docker/simpleweb] # npm start
-
-> @ start ./docker/simpleweb
+> @ start ~/day01/simpleweb
 > node index.js
 
 listening on port 8080
@@ -100,7 +89,7 @@ RawContentLength  : 10
 ```
 
 ```shell
-[./docker/simpleweb/] # docker build -t ppojin/simpleweb:latest .
+[~/day01/simpleweb/] # docker build -t ppojin/simpleweb:latest .
 ```
 
 ## docker 로 webserver 실행
