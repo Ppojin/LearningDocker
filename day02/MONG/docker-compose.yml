@@ -6,33 +6,37 @@ services:
             - "27017:27017"
         volumes:
             - $HOME/mongoRepl/mongo1:/data/db
-        command: mongod --replSet myapp --bind_ip_all
+        command: mongod --replSet myapp
         networks: 
             - mongo-networks
+
     mongo2:
         image: "mongo"
         ports:
             - "27018:27017"
         volumes:
             - $HOME/mongoRepl/mongo2:/data/db
-        command: mongod --replSet myapp --bind_ip_all
+        command: mongod --replSet myapp
         depends_on: 
             - mongo1
         networks: 
             - mongo-networks
+    
     mongo3:
         image: "mongo"
         ports:
             - "27019:27017"
         volumes:
             - $HOME/mongoRepl/mongo3:/data/db
-        command: mongod --replSet myapp --bind_ip_all
+        command: mongod --replSet myapp
         depends_on: 
             - mongo2
         networks: 
             - mongo-networks
+            
     mongo_setup:
-        image: "mongo_repl_setup:latest"
+        # image: "mongo_repl_setup:latest"
+        build: .
         depends_on: 
             - mongo3
         networks: 

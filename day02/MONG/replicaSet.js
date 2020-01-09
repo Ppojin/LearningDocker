@@ -4,7 +4,7 @@
 // rs.add("172.17.0.4:27017");
 //--------------------------- 다른 방법
 config = {
-    _id: "replication",
+    _id: "myapp",
     members: [
         {_id:0, host: "mongo1:27017"},
         {_id:1, host: "mongo2:27017"},
